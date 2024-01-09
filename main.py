@@ -1,6 +1,8 @@
 #Homework 5
 
-# Завдання 1
+# Завдання
+
+
 # Таблиця множення
 num = int(input("Enter a number from 1 to 9: "))
 for i in range(1, 10):
