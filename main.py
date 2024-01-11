@@ -1,71 +1,185 @@
+#TEST
+
+# Завдання 3
+# Напишіть програму, яка перевіряє користувача на
+# знання таблиці множення. Програма виводить на екран
+# два числа, користувач повинен ввести їх добуток. Розробіть кілька
+# рівнів складності (відрізняються складністю
+# та кількістю питань). Виведіть користувачеві оцінку
+#
+# import random
+#
+# print("Start the quizz")
+# level = int(input("Choose a level (1 - easy, 2 - medium, or 3  - hard): "))
+# correct = 0
+# incorrect = 0
+# for i in range(5):
+#     if level == 1:
+#         num1 = random.randint(1, 9)
+#         num2 = random.randint(1, 9)
+#     elif level == 2:
+#         num1 = random.randint(1, 9)
+#         num2 = random.randint(10, 99)
+#     else:
+#         num1 = random.randint(10, 99)
+#         num2 = random.randint(10, 99)
+#
+#     correct_answer = num1 * num2
+#     user_answer = int(input(f"What is {num1} * {num2}? "))
+#     if user_answer == correct_answer:
+#         correct += 1
+#     else:
+#         incorrect += 1
+# print("\nResults:")
+# print(f"Correct Answers: {correct}")
+# print(f"Incorrect Answers: {incorrect}")
+
+# Завдання 1
+# Користувач вводить число. Визначте кількість цифр у
+# цьому числі, підрахуйте їх суму та середнє арифметичне.
+# Визначте кількість нулів у цьому числі. Спілкування з
+# користувачем реалізуйте через меню.
+
+# number = int(input("Enter a number: "))
+#
+# print("1  -  кількість цифр")
+# print("2  -  сума цифр")
+# print("3  -  середнє арифметичне")
+# print("4  -  кількість нулів")
+#
+# choice = input("Enter your choice (1-4): ")
+#
+# num_str = str(number)
+# sum = 0
+# count = 0
+# zero = 0
+# while number >0:
+#     sum += number % 10
+#     count += 1
+#     if number % 10 == 0:
+#         zero += 1
+#     number //= 10
+# average = sum / count
+# if choice == '1':
+#     print(f"кількість цифр: {len(num_str)}")
+# elif choice == '2':
+#     print(f"Сума цифр числа: {sum}")
+# elif choice == '3':
+#     print(f" Середнє арифметичне {average}")
+# elif choice == '4':
+#     print(f"Кількість нулів {zero}")
+
+
+
+# Введення висоти ромбу від користувача
+# height = int(input("Введіть висоту ромбу: "))
+#
+#
+# for i in range(1, height + 1):
+#     print(" " * (height - i) + "*" * (2 * i - 1))
+#
+#
+# for i in range(height - 1, 0, -1):
+#     print(" " * (height - i) + "*" * (2 * i - 1))
+
+
+# Завдання 2
+# Напишіть програму, яка виводить на екран шахівницю
+# із заданим розміром клітинки. Наприклад, три:
+# ***---***---***---***---
+# ***---***---***---***---
+# ***---***---***---***---
+# ---***---***---***---***
+# ---***---***---***---***
+# ---***---***---***---***
+# ***---***---***---***---
+# ***---***---***---***---
+# ***---***---***---***---
+# ---***---***---***---***
+# ---***---***---***---***
+# ---***---***---***---***
+
+
+cell_size = int(input("Введіть розмір клітинки: "))
+
+
+
+
+for i in range(8):
+    for j in range(8):
+        if (i + j) % 2 == 0:
+            print("*" * cell_size, end="")
+        else:
+            print("-" * cell_size, end="")
+    print()
 #Homework 5
 
 # Завдання
 
 
 # Таблиця множення
-num = int(input("Enter a number from 1 to 9: "))
-for i in range(1, 10):
-    result = i * num
-    print(f"{num} * {i} = {result}")
-print("End")
+# num = int(input("Enter a number from 1 to 9: "))
+# for i in range(1, 10):
+#     result = i * num
+#     print(f"{num} * {i} = {result}")
+# print("End")
 
 
 
 # Завдання 2
 # Конвертор валют
-usd_to_uah = 39.2
-eur_to_uah = 43.3
-eur_to_usd = 1.10
-print("1. UAH\n2. USD\n3. EUR ")
-print("Exchange rate:\n\t1 USD = 39.2 UAH\n\t1 EUR = 43.3 UAH\n\t1 EUR = 1,10 USD")
-currency_original = int(input("Exchange from (enter 1,2 or 3): "))
-if currency_original == 1:
-    currency_original_name = "UAH"
-elif currency_original == 2:
-    currency_original_name = "USD"
-elif currency_original == 3:
-    currency_original_name = "EUR"
-else:
-    print("Invalid currency code.")
-    exit()
-
-currency_exchange = int(input("Exchange to (enter 1,2 or 3): "))
-if currency_exchange == 1:
-    currency_exchange_name = "UAH"
-elif currency_exchange == 2:
-    currency_exchange_name = "USD"
-elif currency_exchange == 3:
-    currency_exchange_name = "EUR"
-else:
-    print("Invalid currency code.")
-    exit()
-
-amount = float(input("Enter the amount: "))
-if currency_original == 1:
-    if currency_exchange == 2:
-        result = amount/usd_to_uah
-    elif currency_exchange == 3:
-        result = amount/eur_to_uah
-    else:
-        result = amount
-elif currency_original == 2:
-    if currency_exchange == 1:
-        result = amount*usd_to_uah
-    elif currency_exchange == 3:
-        result = amount/eur_to_usd
-    else:
-        result = amount
-elif currency_original == 3:
-    if currency_exchange == 1:
-        result = amount*eur_to_uah
-    elif currency_exchange == 2:
-        result = amount*eur_to_usd
-    else:
-        result = amount
-else:
-    result = amount
-print(f" Operation result: {amount} {currency_original_name} =  {result:.2f} {currency_exchange_name}")
+# usd_to_uah = 39.2
+# eur_to_uah = 43.3
+# eur_to_usd = 1.10
+# print("1. UAH\n2. USD\n3. EUR ")
+# print("Exchange rate:\n\t1 USD = 39.2 UAH\n\t1 EUR = 43.3 UAH\n\t1 EUR = 1,10 USD")
+# currency_original = int(input("Exchange from (enter 1,2 or 3): "))
+# if currency_original == 1:
+#     currency_original_name = "UAH"
+# elif currency_original == 2:
+#     currency_original_name = "USD"
+# elif currency_original == 3:
+#     currency_original_name = "EUR"
+# else:
+#     print("Invalid currency code.")
+#     exit()
+#
+# currency_exchange = int(input("Exchange to (enter 1,2 or 3): "))
+# if currency_exchange == 1:
+#     currency_exchange_name = "UAH"
+# elif currency_exchange == 2:
+#     currency_exchange_name = "USD"
+# elif currency_exchange == 3:
+#     currency_exchange_name = "EUR"
+# else:
+#     print("Invalid currency code.")
+#     exit()
+#
+# amount = float(input("Enter the amount: "))
+# if currency_original == 1:
+#     if currency_exchange == 2:
+#         result = amount/usd_to_uah
+#     elif currency_exchange == 3:
+#         result = amount/eur_to_uah
+#     else:
+#         result = amount
+# elif currency_original == 2:
+#     if currency_exchange == 1:
+#         result = amount*usd_to_uah
+#     elif currency_exchange == 3:
+#         result = amount/eur_to_usd
+#     else:
+#         result = amount
+# elif currency_original == 3:
+#     if currency_exchange == 1:
+#         result = amount*eur_to_uah
+#     elif currency_exchange == 2:
+#         result = amount*eur_to_usd
+#     else:
+#         result = amount
+# else:
+#     result = amount
+# print(f" Operation result: {amount} {currency_original_name} =  {result:.2f} {currency_exchange_name}")
 
 
 
@@ -73,20 +187,20 @@ print(f" Operation result: {amount} {currency_original_name} =  {result:.2f} {cu
 #Завдання 3
 # Перевірка на належність числа до вказаного діапазону чисел, вивід всього діапазону з позначенням вказаного числа за допомгою символу "!"
 
-bottom = int(input("Input the bottom: "))
-top = float(input("Input the top:"))
-
-while True:
-    number = int(input("Input number "))
-    if bottom <= number <= top:
-        for i in range(int(bottom), int(top) + 1):
-            if i == number:
-                print(f"!{i}!", end=" ")
-            else:
-                print(i, end=" ")
-        break
-    else:
-        print(f"{number} is not in the range. Please try again.")
+# bottom = int(input("Input the bottom: "))
+# top = float(input("Input the top:"))
+#
+# while True:
+#     number = int(input("Input number "))
+#     if bottom <= number <= top:
+#         for i in range(int(bottom), int(top) + 1):
+#             if i == number:
+#                 print(f"!{i}!", end=" ")
+#             else:
+#                 print(i, end=" ")
+#         break
+#     else:
+#         print(f"{number} is not in the range. Please try again.")
 
 
 
