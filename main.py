@@ -1,38 +1,5 @@
 #TEST
 
-# Завдання 3
-# Напишіть програму, яка перевіряє користувача на
-# знання таблиці множення. Програма виводить на екран
-# два числа, користувач повинен ввести їх добуток. Розробіть кілька
-# рівнів складності (відрізняються складністю
-# та кількістю питань). Виведіть користувачеві оцінку
-#
-# import random
-#
-# print("Start the quizz")
-# level = int(input("Choose a level (1 - easy, 2 - medium, or 3  - hard): "))
-# correct = 0
-# incorrect = 0
-# for i in range(5):
-#     if level == 1:
-#         num1 = random.randint(1, 9)
-#         num2 = random.randint(1, 9)
-#     elif level == 2:
-#         num1 = random.randint(1, 9)
-#         num2 = random.randint(10, 99)
-#     else:
-#         num1 = random.randint(10, 99)
-#         num2 = random.randint(10, 99)
-#
-#     correct_answer = num1 * num2
-#     user_answer = int(input(f"What is {num1} * {num2}? "))
-#     if user_answer == correct_answer:
-#         correct += 1
-#     else:
-#         incorrect += 1
-# print("\nResults:")
-# print(f"Correct Answers: {correct}")
-# print(f"Incorrect Answers: {incorrect}")
 
 # Завдання 1
 # Користувач вводить число. Визначте кількість цифр у
@@ -40,48 +7,34 @@
 # Визначте кількість нулів у цьому числі. Спілкування з
 # користувачем реалізуйте через меню.
 
-# number = int(input("Enter a number: "))
-#
-# print("1  -  кількість цифр")
-# print("2  -  сума цифр")
-# print("3  -  середнє арифметичне")
-# print("4  -  кількість нулів")
-#
-# choice = input("Enter your choice (1-4): ")
-#
-# num_str = str(number)
-# sum = 0
-# count = 0
-# zero = 0
-# while number >0:
-#     sum += number % 10
-#     count += 1
-#     if number % 10 == 0:
-#         zero += 1
-#     number //= 10
-# average = sum / count
-# if choice == '1':
-#     print(f"кількість цифр: {len(num_str)}")
-# elif choice == '2':
-#     print(f"Сума цифр числа: {sum}")
-# elif choice == '3':
-#     print(f" Середнє арифметичне {average}")
-# elif choice == '4':
-#     print(f"Кількість нулів {zero}")
+number = int(input("Enter a number: "))
 
+print("1  -  кількість цифр")
+print("2  -  сума цифр")
+print("3  -  середнє арифметичне")
+print("4  -  кількість нулів")
 
+choice = input("Enter your choice (1-4): ")
 
-# Введення висоти ромбу від користувача
-# height = int(input("Введіть висоту ромбу: "))
-#
-#
-# for i in range(1, height + 1):
-#     print(" " * (height - i) + "*" * (2 * i - 1))
-#
-#
-# for i in range(height - 1, 0, -1):
-#     print(" " * (height - i) + "*" * (2 * i - 1))
-
+num_str = str(number)
+sum = 0
+count = 0
+zero = 0
+while number > 0:
+    sum += number % 10
+    count += 1
+    if number % 10 == 0:
+        zero += 1
+    number //= 10
+average = sum / count
+if choice == '1':
+    print(f"кількість цифр: {len(num_str)}")
+elif choice == '2':
+    print(f"Сума цифр числа: {sum}")
+elif choice == '3':
+    print(f" Середнє арифметичне {average}")
+elif choice == '4':
+    print(f"Кількість нулів {zero}")
 
 # Завдання 2
 # Напишіть програму, яка виводить на екран шахівницю
@@ -102,9 +55,6 @@
 
 cell_size = int(input("Введіть розмір клітинки: "))
 
-
-
-
 for i in range(8):
     for j in range(8):
         if (i + j) % 2 == 0:
@@ -112,6 +62,88 @@ for i in range(8):
         else:
             print("-" * cell_size, end="")
     print()
+
+
+
+
+# Завдання 3
+# Напишіть програму, яка перевіряє користувача на
+# знання таблиці множення. Програма виводить на екран
+# два числа, користувач повинен ввести їх добуток. Розробіть кілька
+# рівнів складності (відрізняються складністю
+# та кількістю питань). Виведіть користувачеві оцінку
+#
+import random
+
+print("Start the quizz")
+level = int(input("Choose a level (1 - easy, 2 - medium, or 3  - hard): "))
+correct = 0
+incorrect = 0
+for i in range(5):
+    if level == 1:
+        num1 = random.randint(1, 9)
+        num2 = random.randint(1, 9)
+    elif level == 2:
+        num1 = random.randint(1, 9)
+        num2 = random.randint(10, 99)
+    else:
+        num1 = random.randint(10, 99)
+        num2 = random.randint(10, 99)
+
+    correct_answer = num1 * num2
+    user_answer = int(input(f"What is {num1} * {num2}? "))
+    if user_answer == correct_answer:
+        correct += 1
+    else:
+        incorrect += 1
+print("\nResults:")
+print(f"Correct Answers: {correct}")
+print(f"Incorrect Answers: {incorrect}")
+
+# Завдання 4
+# Виведіть на екран ромб із зірочок.
+
+
+height = int(input("Введіть висоту ромбу: "))
+for i in range(1, height + 1):
+    print(" " * (height - i) + "*" * (2 * i - 1))
+
+for i in range(height - 1, 0, -1):
+    print(" " * (height - i) + "*" * (2 * i - 1))
+
+# Завдання 5
+# Створіть гру «Вгадай число». Програма визначає число в діапазоні від 1 до 500.
+# Користувач намагається його
+# вгадати. Після кожної спроби, програма видає підказки –
+# більше чи менше число за його загадане. Наприкінці програма видає
+# статистику: за скільки спроб вгадано число
+# і скільки часу це зайняло. Передбачте вихід якщо введе 0 у разі,
+# якщо користувачеві набридло вгадувати число.
+
+import random
+import time
+
+number = random.randint(1, 500)
+print(number)
+start_time = time.time()
+count = 0
+
+while True:
+    answer = int(input("Input your number (1..500):  "))
+    count += 1
+
+    if answer == 0:
+        print(f"Exit. Number was {number}.")
+        break
+    elif answer == number:
+        end_time = time.time()
+        print(f"You win! Number was {number}. Count: {count}.Time: {(end_time-start_time):.2f} s.")
+    elif answer > number:
+        print('Your answer > ')
+    else:
+        print('Your answer <')
+
+
 #Homework 5
 
 # Завдання
