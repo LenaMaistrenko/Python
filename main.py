@@ -31,14 +31,19 @@
 # Завдання 3
 # Маємо певний текст. Підрахуйте кількість пропозицій у
 # цьому тексті та виведіть на екран отриманий результат.
-# import re
-# from lorem_text import lorem
-#
-# text = lorem.paragraphs(10)
-# print(text)
-# sentences = re.split(r'[.!?]', text)
-# print(len(sentences))
+import re
+from lorem_text import lorem
+text ="""Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Expedita similique placeat ullam commodi iure voluptatum quidem tempore necessitatibus fuga at, inventore quaerat quos accusamus esse quis ullam, consequatur eaque vel eum earum iste officia, in exercitationem porro accusamus dolore, deserunt animi debitis voluptates. Eius aperiam laborum porro deserunt vitae et velit, assumenda at pariatur nulla magnam voluptates deserunt, repudiandae sed porro deleniti facilis quos excepturi magnam alias? Molestiae sunt blanditiis aperiam quam eaque quas, id perferendis animi nostrum eveniet veritatis non, dignissimos animi necessitatibus, odio porro praesentium sit incidunt in, reprehenderit atque fuga aliquam et debitis laudantium minus enim?
+Cum dignissimos ad eaque quae delectus accusamus doloribus inventore, ex sunt magni dolorum beatae rerum, rerum expedita voluptas odit aut consequatur eaque, quisquam commodi voluptas ab eum saepe tempore aperiam inventore labore quae, a ratione quibusdam perspiciatis hic laborum facilis? Suscipit commodi ipsa labore unde, quis dolores libero odit aliquam non animi molestias aliquid a magnam maxime, corporis id maiores in rem porro at aspernatur dicta quam mollitia quisquam?
+Quae ea id, dolorum maxime porro reprehenderit unde autem aspernatur incidunt soluta, ratione veniam non natus. Voluptate suscipit blanditiis odio facilis quia quos ut nemo dignissimos ducimus commodi, illum obcaecati minus, optio exercitationem temporibus rem assumenda perferendis reiciendis nulla illo placeat ea, est excepturi consequatur temporibus ex magnam aspernatur, non delectus laudantium. Assumenda est repellat nemo quia iste qui blanditiis, amet officia nihil minus repellat, ipsum praesentium quos autem magnam inventore ut, impedit dolorem necessitatibus quaerat quidem quo iure neque velit debitis minima, numquam eius consectetur in pariatur eveniet perferendis dignissimos saepe voluptatum ex.
+Temporibus hic ipsa, molestiae similique eveniet veritatis nisi sunt expedita natus porro maiores explicabo voluptas, magni consequuntur adipisci unde numquam labore doloremque placeat obcaecati tenetur? Nulla exercitationem ipsam praesentium velit obcaecati dolores magnam, cupiditate alias at expedita nobis temporibus laborum eos blanditiis, rem tempora cum voluptate consequuntur iste quas libero at tenetur repellat, eaque labore provident iusto sequi sunt, maiores dolor tenetur iste facilis fugit quis sint. Officia maxime architecto aspernatur iusto, quas sunt distinctio sapiente vitae nam voluptatibus doloremque minima aliquid in.
+Distinctio cupiditate fugiat praesentium in nam, accusantium laboriosam quae, nostrum quam rem amet nesciunt sint ad voluptas delectus exercitationem reprehenderit, quod tempora sit ut veritatis harum iusto mollitia eos ipsum quidem. Ratione assumenda numquam, magni soluta fugit totam porro cupiditate iusto doloribus sunt, nostrum quas architecto tempore assumenda alias veritatis obcaecati sapiente quae atque quia, ullam reprehenderit nostrum? """
 
+print(text)
+sentences = re.split(r'[.!?]', text)
+
+print(f"Number of sentences: {len(sentences)}")
 #TEST
 
 
