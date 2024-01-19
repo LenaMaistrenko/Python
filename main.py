@@ -6,10 +6,10 @@
 # або текст, які однаково читаються як зліва направо, так і
 # справа наліво
 
-str = input("Input string:")
-update_str = str.lower().replace(" ", "")
-revers_str = update_str[::-1]
-print("Its palindrome" if update_str == revers_str else "Its not palindrome")
+# str = input("Input string:")
+# update_str = str.lower().replace(" ", "")
+# revers_str = update_str[::-1]
+# print("Its palindrome" if update_str == revers_str else "Its not palindrome")
 
 
 # Завдання 2
