@@ -33,6 +33,29 @@ print(f"The result of the expression {text} is: {result}")
 # кількість від’ємних елементів, додатних елементів та кількість
 # нулів. Результати виведіть на екран.
 
+import random
+
+numbers = [random.randint(-100, 100) for i in range(200)]
+print(numbers)
+
+max= max(numbers)
+min = min(numbers)
+null = numbers.count(0)
+
+negative_count = 0
+positive_count = 0
+
+for number in numbers:
+    if numbers[number] > 0:
+        positive_count += 1
+    elif numbers[number] < 0:
+        negative_count += 1
+
+
+
+
+print(f"max = {max}, min = {min}, null = {null} negative count = {negative_count}, positive count = {positive_count}")
+
 # Homework строки
 
 # Завдання 1
