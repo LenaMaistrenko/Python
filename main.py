@@ -1,3 +1,57 @@
+
+# У списку цілих, заповненому випадковими числами,
+# розрахуйте:
+# ■ Суму від’ємних чисел.
+# ■ Суму парних чисел.
+# ■ Суму непарних чисел.
+# ■ Добуток елементів з індексами, кратними 3.
+# ■ Добуток елементів між мінімальним та максимальним
+# елементом.
+# ■ Суму елементів, що знаходяться між першим та останнім додатним елементом.
+
+# import random
+#
+# list = [random.randint(-10,10) for i in range(100)]
+#
+# sumnegative = sum( i for i in list if i < 0)
+# parni = sum(i for i in list if i % 2 == 0)
+# neparni =sum(i for i in list if i % 2 !=0)
+# neparni =sum(i for i in list if i % 2 !=0)
+#
+# mult=1
+# for i in range(0, len(list),3):
+#     mult *= list[i]
+#
+#
+#
+#
+# print (sumnegative,parni,neparni,mult)
+
+
+
+# Завдання 2
+# Маємо список цілих, заповнений випадковими числами. Використовуючи дані цього масиву створіть список
+# цілих, що містить лише:
+# ■ парні числа з першого списку;
+# ■ непарні числа з першого списку;
+# ■ від’ємні числа з першого списку;
+# ■ додатні числа з першого списку.
+
+
+
+# import random
+#
+# list = [random.randint(-100,100) for i in range(50)]
+#
+# even_numbers = [num for num in list if num % 2 == 0]
+# odd_numbers = [num for num in list if num % 2 != 0]
+# negative_numbers = [num for num in list if num < 0]
+# positive_numbers = [num for num in list if num > 0]
+# print('list: ', *list)
+# print('even: ',*even_numbers)
+# print('odd: ',*odd_numbers)
+# print('-:',*negative_numbers)
+# print("+",*positive_numbers)
 # Модуль 3. Рядки, списки
 # Тема: Списки. Частина 2
 
@@ -8,53 +62,53 @@
 # Арифметичний вираз може складатися тільки з трьох частин:
 # число, операція, число. Можливі операції: +, -, *, /.
 
-import re
-text = input("Enter math expression (example: 23+12): ")
-
-list = re.findall(r'\d+|\S', text)
-num1 = int(list[0])
-operator = list[1]
-num2 = int(list[2])
-if operator == '+':
-    result = num1 + num2
-elif operator == '-':
-    result = num1 - num2
-elif operator == '*':
-    result = num1 * num2
-elif operator == '/':
-    result = num1 / num2
-else:
-    print("Invalid operator")
-
-print(f"The result of the expression {text} is: {result}")
+# import re
+# text = input("Enter math expression (example: 23+12): ")
+#
+# list = re.findall(r'\d+|\S', text)
+# num1 = int(list[0])
+# operator = list[1]
+# num2 = int(list[2])
+# if operator == '+':
+#     result = num1 + num2
+# elif operator == '-':
+#     result = num1 - num2
+# elif operator == '*':
+#     result = num1 * num2
+# elif operator == '/':
+#     result = num1 / num2
+# else:
+#     print("Invalid operator")
+#
+# print(f"The result of the expression {text} is: {result}")
 #
 # Завдання 2
 # У списку цілих, заповненому випадковими числами, визначте мінімальний та максимальний елементи, підрахуйте
 # кількість від’ємних елементів, додатних елементів та кількість
 # нулів. Результати виведіть на екран.
 
-import random
-
-numbers = [random.randint(-100, 100) for i in range(200)]
-print(numbers)
-
-max= max(numbers)
-min = min(numbers)
-null = numbers.count(0)
-
-negative_count = 0
-positive_count = 0
-
-for number in numbers:
-    if numbers[number] > 0:
-        positive_count += 1
-    elif numbers[number] < 0:
-        negative_count += 1
-
-
+# import random
+#
+# numbers = [random.randint(-100, 100) for i in range(200)]
+# print(numbers)
+#
+# max= max(numbers)
+# min = min(numbers)
+# null = numbers.count(0)
+#
+# negative_count = 0
+# positive_count = 0
+#
+# for number in numbers:
+#     if numbers[number] > 0:
+#         positive_count += 1
+#     elif numbers[number] < 0:
+#         negative_count += 1
 
 
-print(f"max = {max}, min = {min}, null = {null} negative count = {negative_count}, positive count = {positive_count}")
+
+
+# print(f"max = {max}, min = {min}, null = {null} negative count = {negative_count}, positive count = {positive_count}")
 
 # Homework строки
 
