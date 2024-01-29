@@ -1,3 +1,68 @@
+# Модуль 3. Рядки, списки
+# Тема: Списки. Частина 3
+# Завдання
+# Два списки цілих заповнюються випадковими числами.
+# Сформуйте третій список, який містить:
+# ■ елементи обох списків;
+# ■ елементи обох списків без повторень;
+# ■ елементи, спільні для двох списків;
+# ■ тільки унікальні елементи кожного зі списків;
+# ■ тільки мінімальне та максимальне значення кожного зі
+# списків.
+import random
+list1 = [random.randint(0,10) for i in range(20)]
+list2 = [random.randint(0,10) for i in range(10)]
+list_uniq = []
+list_repit = []
+unique_list1 = []
+unique_list2 = []
+
+
+# ■ елементи обох списків;
+list3 = list1 + list2
+
+# ■ елементи обох списків без повторень;
+for i in list3:
+    if list_uniq.count(i) == 0:
+        list_uniq.append(i)
+
+
+# ■ елементи, спільні для двох списків;
+for i in list1:
+    if i in list2 and i not in list_repit:
+        list_repit.append(i)
+
+# ■ тільки унікальні елементи кожного зі списків;
+for i in list1:
+    if list1.count(i) == 1 and i not in unique_list1:
+        unique_list1.append(i)
+for i in list2:
+    if list2.count(i) == 1 and i not in unique_list2:
+        unique_list2.append(i)
+
+
+# ■ тільки мінімальне та максимальне значення кожного зі
+# списків.
+maxmin = [min(list1), max(list1),min(list2),max(list2)]
+
+print('list1: ',*list1)
+print('list2: ',*list2)
+print("елементи обох списків: ", *list3)
+print("елементи обох списків без повторень: ", *list_uniq)
+print("елементи, спільні для двох списків: ", *list_repit)
+print("тільки унікальні елементи кожного зі списків, list1: ", *unique_list1, "list2: ", *unique_list2)
+print('тільки мінімальне та максимальне значення  ', maxmin)
+
+
+
+
+
+
+
+
+
+
+
 
 # У списку цілих, заповненому випадковими числами,
 # розрахуйте:
