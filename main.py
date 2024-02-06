@@ -1,3 +1,50 @@
+# Модуль 6. Кортежі, множини, словники
+# Тема: Кортежі, множини, словники. Частина 1
+
+# Завдання 1
+# Маємо три кортежі цілих чисел. Знайдіть елементи, які
+# є у всіх кортежах.
+
+tuple1 = (1, 2, 7, 4, 5, 4, 2)
+tuple2 = (3, 4, 5, 6, 7, 4, 3)
+tuple3 = (5, 6, 7, 8, 9, 3, 1)
+
+result = set(tuple1)&set(tuple2)&set(tuple3)
+print("Спільні елементи ", result)
+
+# Завдання 2
+# Маємо три кортежі цілих чисел. Знайдіть елементи, які
+# унікальні для кожного списку.
+
+tuple1 = (1, 2, 7, 4, 5, 4, 2)
+tuple2 = (3, 4, 1, 6, 7, 8, 13)
+tuple3 = (5, 6, 7, 8, 9, 3, 1)
+
+result1 = set(tuple1) - set(tuple2) - set(tuple3)
+result2 = set(tuple2) - set(tuple1) - set(tuple3)
+result3 = set(tuple3) - set(tuple1) - set(tuple2)
+
+print(" Унікальні значення tuple1: ", result1)
+print(" Унікальні значення tuple2: ", result2)
+print(" Унікальні значення tuple3: ", result3)
+
+#
+# Завдання 3
+# Маємо три кортежі цілих чисел. Знайдіть елементи, які
+# є в кожному з кортежів і знаходяться в кожному з них на тій
+# самій позиції.
+
+tuple1 = (1, 2, 7, 4, 5, 4, 2)
+tuple2 = (3, 4, 7, 6, 7, 8, 13)
+tuple3 = (5, 6, 7, 8, 9, 3, 1)
+
+elements = []
+
+for i in range(min(len(tuple1),len(tuple2),len(tuple3))):
+    if tuple1[i] == tuple2[i] == tuple3[i]:
+        elements.append(tuple1[i])
+
+print(elements)
 # Модуль 5. Сортування та пошук
 # Тема: Сортування та пошук. Частина 1
 # Завдання 1
@@ -6,23 +53,23 @@
 # а розташуйте у зворотному порядку.
 
 
-list = [3, -5, 1, -9, -2, 7, 6, -4, 8]
-
-average = sum(list) / len(list)
-print("average", average)
-
-if average >0:
-    index = (2 * len(list)) // 3
-    list1 = sorted(list[:index])
-    list2 = list[index:][::-1]
-    result = list1 + list2
-    print(result)
-else:
-    index = len(list) // 3
-    list1 = sorted(list[:index])
-    list2 = list[index:][::-1]
-    result = list1 + list2
-    print(result)
+# list = [3, -5, 1, -9, -2, 7, 6, -4, 8]
+#
+# average = sum(list) / len(list)
+# print("average", average)
+#
+# if average >0:
+#     index = (2 * len(list)) // 3
+#     list1 = sorted(list[:index])
+#     list2 = list[index:][::-1]
+#     result = list1 + list2
+#     print(result)
+# else:
+#     index = len(list) // 3
+#     list1 = sorted(list[:index])
+#     list2 = list[index:][::-1]
+#     result = list1 + list2
+#     print(result)
 
 # Завдання 2
 # Написати програму «Успішність». Користувач вводить
@@ -35,42 +82,42 @@ else:
 # ■ виведення відсортованого списку оцінок: за зростанням
 # або спаданням.
 
-grades = []
-for i in range(10):
-    grade = int(input(f"Введіть оцінку від 1 до 12: "))
-    grades.append(grade)
-
-while True:
-    print("\nМеню:")
-    print("1. Виведення оцінок")
-    print("2. Перескладання іспиту")
-    print("3. Отримання стипендії")
-    print("4. Виведення відсортованого списку оцінок за зростанням")
-    print("5. Виведення відсортованого списку оцінок за спаданням")
-    print("6. Вихід")
-
-    choice = int(input("Виберіть пункт меню: "))
-
-    if choice == 1:
-        print(*grades)
-    elif choice ==2:
-        index = int(input("Введіть номер оцінки, яку потрібно змінити (від 1 до 10 ): "))
-        new_grade = int(input("Введіть нову оцінку (від 1 до 12): "))
-        grades[index-1] = new_grade
-        print("Оцінку замінено")
-    elif choice == 3:
-        average = sum(grades) / len(grades)
-        if average >= 10.7:
-            print("Студент отримує стипендію.")
-        else:
-            print("Студент не отримує стипендію.")
-    elif choice == 4:
-        print("Відсортований список оцінок за зростанням:", sorted(grades))
-    elif choice ==5:
-        print("Відсортований список оцінок за спаданням:", sorted(grades, reverse=True))
-    elif choice == 6:
-        print("Програма завершена.")
-        break
+# grades = []
+# for i in range(10):
+#     grade = int(input(f"Введіть оцінку від 1 до 12: "))
+#     grades.append(grade)
+#
+# while True:
+#     print("\nМеню:")
+#     print("1. Виведення оцінок")
+#     print("2. Перескладання іспиту")
+#     print("3. Отримання стипендії")
+#     print("4. Виведення відсортованого списку оцінок за зростанням")
+#     print("5. Виведення відсортованого списку оцінок за спаданням")
+#     print("6. Вихід")
+#
+#     choice = int(input("Виберіть пункт меню: "))
+#
+#     if choice == 1:
+#         print(*grades)
+#     elif choice ==2:
+#         index = int(input("Введіть номер оцінки, яку потрібно змінити (від 1 до 10 ): "))
+#         new_grade = int(input("Введіть нову оцінку (від 1 до 12): "))
+#         grades[index-1] = new_grade
+#         print("Оцінку замінено")
+#     elif choice == 3:
+#         average = sum(grades) / len(grades)
+#         if average >= 10.7:
+#             print("Студент отримує стипендію.")
+#         else:
+#             print("Студент не отримує стипендію.")
+#     elif choice == 4:
+#         print("Відсортований список оцінок за зростанням:", sorted(grades))
+#     elif choice ==5:
+#         print("Відсортований список оцінок за спаданням:", sorted(grades, reverse=True))
+#     elif choice == 6:
+#         print("Програма завершена.")
+#         break
 
 # Завдання 3
 # Напишіть програму для сортування списку методом
@@ -78,20 +125,20 @@ while True:
 # полягає в тому, щоб аналізувати кількість перестановок на
 # кожному кроці. Якщо ця кількість дорівнює нулю, то продовжувати сортування немає сенсу — список відсортовано.
 
-import random
-list = [random.randint(0,10) for i in range(20)]
-print(list)
-n = len(list)
-for i in range(n):
-    fl = False
-    for j in range(0, n-i-1):
-        if list[j] > list[j+1]:
-            list[j], list[j+1] = list[j+1], list[j]
-            fl = True
-    if not fl:
-        break
-
-print("Відсортований список:", list)
+# import random
+# list = [random.randint(0,10) for i in range(20)]
+# print(list)
+# n = len(list)
+# for i in range(n):
+#     fl = False
+#     for j in range(0, n-i-1):
+#         if list[j] > list[j+1]:
+#             list[j], list[j+1] = list[j+1], list[j]
+#             fl = True
+#     if not fl:
+#         break
+#
+# print("Відсортований список:", list)
 
 
 
