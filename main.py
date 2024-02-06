@@ -1,3 +1,103 @@
+# Модуль 5. Сортування та пошук
+# Тема: Сортування та пошук. Частина 1
+# Завдання 1
+# Відсортуйте перші дві третини списку в порядку зростання, якщо середнє арифметичне всіх елементів більше за нуль;
+# якщо ні — тільки першу третину. Решту списку не сортуйте,
+# а розташуйте у зворотному порядку.
+
+
+list = [3, -5, 1, -9, -2, 7, 6, -4, 8]
+
+average = sum(list) / len(list)
+print("average", average)
+
+if average >0:
+    index = (2 * len(list)) // 3
+    list1 = sorted(list[:index])
+    list2 = list[index:][::-1]
+    result = list1 + list2
+    print(result)
+else:
+    index = len(list) // 3
+    list1 = sorted(list[:index])
+    list2 = list[index:][::-1]
+    result = list1 + list2
+    print(result)
+
+# Завдання 2
+# Написати програму «Успішність». Користувач вводить
+# 10 оцінок студента. Оцінки від 1 до 12. Реалізуйте меню для
+# користувача:
+# ■ виведення оцінок (виведення вмісту списку);
+# ■ перескладання іспиту (користувач вводить номер елемента
+# списку та нову оцінку);
+# ■ отримання стипендії (стипендію отримують, якщо середній бал не нижче 10.7);
+# ■ виведення відсортованого списку оцінок: за зростанням
+# або спаданням.
+
+grades = []
+for i in range(10):
+    grade = int(input(f"Введіть оцінку від 1 до 12: "))
+    grades.append(grade)
+
+while True:
+    print("\nМеню:")
+    print("1. Виведення оцінок")
+    print("2. Перескладання іспиту")
+    print("3. Отримання стипендії")
+    print("4. Виведення відсортованого списку оцінок за зростанням")
+    print("5. Виведення відсортованого списку оцінок за спаданням")
+    print("6. Вихід")
+
+    choice = int(input("Виберіть пункт меню: "))
+
+    if choice == 1:
+        print(*grades)
+    elif choice ==2:
+        index = int(input("Введіть номер оцінки, яку потрібно змінити (від 1 до 10 ): "))
+        new_grade = int(input("Введіть нову оцінку (від 1 до 12): "))
+        grades[index-1] = new_grade
+        print("Оцінку замінено")
+    elif choice == 3:
+        average = sum(grades) / len(grades)
+        if average >= 10.7:
+            print("Студент отримує стипендію.")
+        else:
+            print("Студент не отримує стипендію.")
+    elif choice == 4:
+        print("Відсортований список оцінок за зростанням:", sorted(grades))
+    elif choice ==5:
+        print("Відсортований список оцінок за спаданням:", sorted(grades, reverse=True))
+    elif choice == 6:
+        print("Програма завершена.")
+        break
+
+# Завдання 3
+# Напишіть програму для сортування списку методом
+# удосконаленого бульбашкового сортування. Удосконалення
+# полягає в тому, щоб аналізувати кількість перестановок на
+# кожному кроці. Якщо ця кількість дорівнює нулю, то продовжувати сортування немає сенсу — список відсортовано.
+
+import random
+list = [random.randint(0,10) for i in range(20)]
+print(list)
+n = len(list)
+for i in range(n):
+    fl = False
+    for j in range(0, n-i-1):
+        if list[j] > list[j+1]:
+            list[j], list[j+1] = list[j+1], list[j]
+            fl = True
+    if not fl:
+        break
+
+print("Відсортований список:", list)
+
+
+
+
+
+
 # Модуль 3. Рядки, списки
 # Тема: Списки. Частина 3
 # Завдання
@@ -9,49 +109,49 @@
 # ■ тільки унікальні елементи кожного зі списків;
 # ■ тільки мінімальне та максимальне значення кожного зі
 # списків.
-import random
-list1 = [random.randint(0,10) for i in range(20)]
-list2 = [random.randint(0,10) for i in range(10)]
-list_uniq = []
-list_repit = []
-unique_list1 = []
-unique_list2 = []
-
-
-# ■ елементи обох списків;
-list3 = list1 + list2
-
-# ■ елементи обох списків без повторень;
-for i in list3:
-    if list_uniq.count(i) == 0:
-        list_uniq.append(i)
-
-
-# ■ елементи, спільні для двох списків;
-for i in list1:
-    if i in list2 and i not in list_repit:
-        list_repit.append(i)
-
-# ■ тільки унікальні елементи кожного зі списків;
-for i in list1:
-    if list1.count(i) == 1 and i not in unique_list1:
-        unique_list1.append(i)
-for i in list2:
-    if list2.count(i) == 1 and i not in unique_list2:
-        unique_list2.append(i)
-
-
-# ■ тільки мінімальне та максимальне значення кожного зі
-# списків.
-maxmin = [min(list1), max(list1),min(list2),max(list2)]
-
-print('list1: ',*list1)
-print('list2: ',*list2)
-print("елементи обох списків: ", *list3)
-print("елементи обох списків без повторень: ", *list_uniq)
-print("елементи, спільні для двох списків: ", *list_repit)
-print("тільки унікальні елементи кожного зі списків, list1: ", *unique_list1, "list2: ", *unique_list2)
-print('тільки мінімальне та максимальне значення  ', maxmin)
+# import random
+# list1 = [random.randint(0,10) for i in range(20)]
+# list2 = [random.randint(0,10) for i in range(10)]
+# list_uniq = []
+# list_repit = []
+# unique_list1 = []
+# unique_list2 = []
+#
+#
+# # ■ елементи обох списків;
+# list3 = list1 + list2
+#
+# # ■ елементи обох списків без повторень;
+# for i in list3:
+#     if list_uniq.count(i) == 0:
+#         list_uniq.append(i)
+#
+#
+# # ■ елементи, спільні для двох списків;
+# for i in list1:
+#     if i in list2 and i not in list_repit:
+#         list_repit.append(i)
+#
+# # ■ тільки унікальні елементи кожного зі списків;
+# for i in list1:
+#     if list1.count(i) == 1 and i not in unique_list1:
+#         unique_list1.append(i)
+# for i in list2:
+#     if list2.count(i) == 1 and i not in unique_list2:
+#         unique_list2.append(i)
+#
+#
+# # ■ тільки мінімальне та максимальне значення кожного зі
+# # списків.
+# maxmin = [min(list1), max(list1),min(list2),max(list2)]
+#
+# print('list1: ',*list1)
+# print('list2: ',*list2)
+# print("елементи обох списків: ", *list3)
+# print("елементи обох списків без повторень: ", *list_uniq)
+# print("елементи, спільні для двох списків: ", *list_repit)
+# print("тільки унікальні елементи кожного зі списків, list1: ", *unique_list1, "list2: ", *unique_list2)
+# print('тільки мінімальне та максимальне значення  ', maxmin)
 
 
 
