@@ -1,32 +1,292 @@
+#Homework
+# маємо 4 списки цілих чисел. Обєднати в пятий спсок тількт ті елементи які є унікальними для кожного списку.
+# Отриманий результат відсортуйте за спаданням чи зростанням за вибором користовача.
+# Знайдіть значення, введене користувачем за дпомогою бінарного пошуку
+
+import random
+list1 = [random.randint(-10, 10) for i in range(10)]
+list2 = [random.randint(-10, 10) for i in range(10)]
+list3 = [random.randint(-10, 10) for i in range(10)]
+list4 = [random.randint(-10, 10) for i in range(10)]
+uniq1=[]
+uniq2=[]
+uniq3=[]
+uniq4=[]
+
+for i in range(len(list1)):
+    if uniq1.count(list1[i]) == 0:
+        uniq1.append(list1[i])
+    if uniq2.count(list2[i]) == 0:
+        uniq2.append(list2[i])
+    if uniq3.count(list3[i]) == 0:
+        uniq3.append(list3[i])
+    if uniq4.count(list4[i]) == 0:
+        uniq4.append(list4[i])
+uniq = uniq1+uniq2+uniq3+uniq4
+print("list1: ",list1,"uniq1: ", uniq1)
+print("list2: ",list2,"uniq2: ", uniq2)
+print("list3: ",list3,"uniq3: ", uniq3)
+print("list4: ",list4,"uniq4: ", uniq4)
+print("List of unique elements: ", uniq)
+
+choice = int(input(" Sorting +  - 1, sorting -   2 : "))
+if choice == 1:
+    sortlist = sorted(uniq)
+    print(sortlist)
+elif choice == 2:
+    sortlist = (sorted(uniq, reverse=True))
+    print(sortlist)
+
+else:
+    print("wrong choice")
+
+number = int(input("Input number : "))
+sortlist = sorted(uniq)
+left = 0
+right = len(sortlist)-1
+print(right)
+while left <= right:
+     mid = (left + right) // 2
+     if sortlist[mid] == number:
+         if choice ==1 :
+            print(f"Your number {number} is on {mid} position on list")
+            break
+         else :
+             print(f"Your number {number} is on {len(sortlist)-mid } position on list")
+             break
+     elif sortlist[mid] < number:
+         left = mid + 1
+     else:
+         right = mid - 1
+
+else:
+     print(f"number {number} not found")
+
+
+
+# Напишіть програму «Книги». Створіть два списки з даними. Один список зберігає назви книг, другий Реалізуйте меню для користувача:
+# ■ відсортувати за назвою книг;
+# відсортувати за рокам випуску;
+# вивести список книг з назвами та роками випуску;
+books = [("Книга1", 2005), ("Книга2", 2010), ("Книга3", 1998)]
+
+while True:
+    print("\nМеню:")
+    print("1. Відсортувати за назвою книг")
+    print("2. Відсортувати за роками випуску")
+    print("3. Вивести список книг з назвами та роками випуску")
+    print("4. Вихід")
+
+    choice = input("Виберіть опцію: ")
+
+    if choice == '1':
+        sorted_books = sorted(books, key=lambda x: x[0])
+        print("Відсортовано за назвою книг:")
+        for book in sorted_books:
+            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+    elif choice == '2':
+        sorted_books = sorted(books, key=lambda x: x[1])
+        print("Відсортовано за роками випуску:")
+        for book in sorted_books:
+            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+    elif choice == '3':
+        print("Список книг:")
+        for book in books:
+            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+    elif choice == '4':
+        break
+    else:
+        print("Некоректний вибір.")
+
+
+
+
+
+
+# є список книг в форматі (автор, назва, рік, видання).створити меню. 1 Сортування книг за автором, або за роком . 2 ПОщук книги по назві, за виданням, автором.
+# 3.фільтарація за роком. користвач водить рік та вибирає "показати киги після цього року" або "книги до цього року"
+
+books = [
+    ("Автор1", "Назва1", 2005, "Видання1"),
+    ("Автор2", "Назва2", 2010, "Видання2"),
+    ("Автор3", "Назва3", 1998, "Видання3")
+]
+
+while True:
+    print("\nМеню:")
+    print("1. Сортування книг за автором або за роком")
+    print("2. Пошук книги за назвою, виданням або автором")
+    print("3. Фільтрація за роком")
+    print("4. Вихід")
+
+    choice = input("Виберіть опцію: ")
+
+    if choice == '1':
+        sort_choice = input("Виберіть сортування: 1. За автором 2. За роком: ")
+        if sort_choice == '1':
+            sorted_books = sorted(books, key=lambda x: x[0])
+            print("Відсортовано за автором:")
+            for book in sorted_books:
+                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+        elif sort_choice == '2':
+            sorted_books = sorted(books, key=lambda x: x[2])
+            print("Відсортовано за роком:")
+            for book in sorted_books:
+                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+        else:
+            print("ПОмилка")
+    elif choice == '2':
+        search_term = input("Введіть назву, видання або автора книги для пошуку: ").lower()
+        found_books = [book for book in books if search_term in [str(item).lower() for item in book]]
+        if found_books:
+            for book in found_books:
+                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+        else:
+            print("Книга не знайдена.")
+    elif choice == '3':
+        filter_choice = input("1. Показати книги після вказаного року 2. Показати книги до вказаного року: ")
+        year = int(input("Введіть рік: "))
+        if filter_choice == '1':
+            filtered_books = [book for book in books if book[2] > year]
+        elif filter_choice == '2':
+            filtered_books = [book for book in books if book[2] < year]
+        else:
+            print("Помилка")
+            continue
+        if filtered_books:
+            print(f"Книги {'після' if filter_choice == '1' else 'до'} {year} року:")
+            for book in filtered_books:
+                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+        else:
+            print("Немає таких  книг ")
+    elif choice == '4':
+        break
+    else:
+        print("Некоректний вибір")
+
+
 # Модуль 6. Кортежі, множини, словники
 # Тема: Кортежі, множини, словники. Частина 1
+# Початкова база книжкової колекції
+# books = [
+#     {'author': 'Джордж Оруелл', 'title': '1984', 'genre': 'Антиутопія', 'year': '1949', 'pages': '328', 'publisher': 'Secker & Warburg'},
+#     {'author': 'Рей Бредбері', 'title': '451 градус за Фаренгейтом', 'genre': 'Антиутопія', 'year': '1953', 'pages': '158', 'publisher': 'Ballantine Books'},
+#     {'author': 'Джордж Р. Р. Мартін', 'title': 'Гра Престолів', 'genre': 'Фентезі', 'year': '1996', 'pages': '694', 'publisher': 'Bantam Spectra'},
+#     {'author': 'Сьюзен Коллінз', 'title': 'Голодні ігри', 'genre': 'Фантастика', 'year': '2008', 'pages': '374', 'publisher': 'Scholastic Press'},
+#     {'author': 'Жуль Верн', 'title': 'Таємничий острів', 'genre': 'Пригодницький роман', 'year': '1874', 'pages': '532', 'publisher': 'Pierre-Jules Hetzel'}
+# ]
+#
+# while True:
+#     print("\nМеню:")
+#     print("1. Додати книгу")
+#     print("2. Видалити книгу")
+#     print("3. Знайти книгу")
+#     print("4. Змінити інформацію про книгу")
+#     print("5. Показати всі книги")
+#     print("6. Вихід")
+#
+#     choice = input("Оберіть опцію: ")
+#
+#     if choice == "1":
+#         author = input("Введіть автора книги: ")
+#         title = input("Введіть назву книги: ")
+#         genre = input("Введіть жанр книги: ")
+#         year = input("Введіть рік випуску книги: ")
+#         pages = input("Введіть кількість сторінок книги: ")
+#         publisher = input("Введіть видавництво книги: ")
+#         book = {
+#             'author': author,
+#             'title': title,
+#             'genre': genre,
+#             'year': year,
+#             'pages': pages,
+#             'publisher': publisher
+#         }
+#         books.append(book)
+#     elif choice == "2":
+#         title = input("Введіть назву книги, яку потрібно видалити: ")
+#         removed = False
+#         for book in books:
+#             if book['title'] == title:
+#                 books.remove(book)
+#                 print(f"Книга '{title}' видалена з колекції.")
+#                 removed = True
+#                 break
+#         if not removed:
+#             print(f"Книга з назвою '{title}' не знайдена в колекції.")
+#     elif choice == "3":
+#         title = input("Введіть назву книги, яку потрібно знайти: ")
+#         found = False
+#         for book in books:
+#             if book['title'] == title:
+#                 print("Інформація про книгу:")
+#                 print("Автор:", book['author'])
+#                 print("Назва:", book['title'])
+#                 print("Жанр:", book['genre'])
+#                 print("Рік випуску:", book['year'])
+#                 print("Кількість сторінок:", book['pages'])
+#                 print("Видавництво:", book['publisher'])
+#                 found = True
+#                 break
+#         if not found:
+#             print(f"Книга з назвою '{title}' не знайдена в колекції.")
+#     elif choice == "4":
+#         title = input("Введіть назву книги, для якої потрібно оновити інформацію: ")
+#         field = input("Введіть поле, яке потрібно оновити: ")
+#         new_value = input(f"Введіть нове значення для поля '{field}': ")
+#         updated = False
+#         for book in books:
+#             if book['title'] == title:
+#                 if field in book:
+#                     book[field] = new_value
+#                     print(f"Інформація про книгу '{title}' оновлена: {field} = {new_value}.")
+#                     updated = True
+#                     break
+#                 else:
+#                     print(f"Поле '{field}' не існує у записі про книгу.")
+#                     updated = True
+#                     break
+#         if not updated:
+#             print(f"Книга з назвою '{title}' не знайдена в колекції.")
+#     elif choice == "5":
+#         if not books:
+#             print("У колекції немає книг.")
+#         else:
+#             print("Книжкова колекція:")
+#             for i, book in enumerate(books, 1):
+#                 print(f"{i}. {book['title']}")
+#     elif choice == "6":
+#         print("Програма завершена.")
+#         break
+#     else:
+#         print("Некоректний вибір опції. Спробуйте ще раз.")
 
 # Завдання 1
 # Маємо три кортежі цілих чисел. Знайдіть елементи, які
 # є у всіх кортежах.
 
-tuple1 = (1, 2, 7, 4, 5, 4, 2)
-tuple2 = (3, 4, 5, 6, 7, 4, 3)
-tuple3 = (5, 6, 7, 8, 9, 3, 1)
-
-result = set(tuple1)&set(tuple2)&set(tuple3)
-print("Спільні елементи ", result)
+# tuple1 = (1, 2, 7, 4, 5, 4, 2)
+# tuple2 = (3, 4, 5, 6, 7, 4, 3)
+# tuple3 = (5, 6, 7, 8, 9, 3, 1)
+#
+# result = set(tuple1)&set(tuple2)&set(tuple3)
+# print("Спільні елементи ", result)
 
 # Завдання 2
 # Маємо три кортежі цілих чисел. Знайдіть елементи, які
 # унікальні для кожного списку.
 
-tuple1 = (1, 2, 7, 4, 5, 4, 2)
-tuple2 = (3, 4, 1, 6, 7, 8, 13)
-tuple3 = (5, 6, 7, 8, 9, 3, 1)
-
-result1 = set(tuple1) - set(tuple2) - set(tuple3)
-result2 = set(tuple2) - set(tuple1) - set(tuple3)
-result3 = set(tuple3) - set(tuple1) - set(tuple2)
-
-print(" Унікальні значення tuple1: ", result1)
-print(" Унікальні значення tuple2: ", result2)
-print(" Унікальні значення tuple3: ", result3)
+# tuple1 = (1, 2, 7, 4, 5, 4, 2)
+# tuple2 = (3, 4, 1, 6, 7, 8, 13)
+# tuple3 = (5, 6, 7, 8, 9, 3, 1)
+#
+# result1 = set(tuple1) - set(tuple2) - set(tuple3)
+# result2 = set(tuple2) - set(tuple1) - set(tuple3)
+# result3 = set(tuple3) - set(tuple1) - set(tuple2)
+#
+# print(" Унікальні значення tuple1: ", result1)
+# print(" Унікальні значення tuple2: ", result2)
+# print(" Унікальні значення tuple3: ", result3)
 
 #
 # Завдання 3
@@ -34,17 +294,17 @@ print(" Унікальні значення tuple3: ", result3)
 # є в кожному з кортежів і знаходяться в кожному з них на тій
 # самій позиції.
 
-tuple1 = (1, 2, 7, 4, 5, 4, 2)
-tuple2 = (3, 4, 7, 6, 7, 8, 13)
-tuple3 = (5, 6, 7, 8, 9, 3, 1)
-
-elements = []
-
-for i in range(min(len(tuple1),len(tuple2),len(tuple3))):
-    if tuple1[i] == tuple2[i] == tuple3[i]:
-        elements.append(tuple1[i])
-
-print(elements)
+# tuple1 = (1, 2, 7, 4, 5, 4, 2)
+# tuple2 = (3, 4, 7, 6, 7, 8, 13)
+# tuple3 = (5, 6, 7, 8, 9, 3, 1)
+#
+# elements = []
+#
+# for i in range(min(len(tuple1),len(tuple2),len(tuple3))):
+#     if tuple1[i] == tuple2[i] == tuple3[i]:
+#         elements.append(tuple1[i])
+#
+# print(elements)
 # Модуль 5. Сортування та пошук
 # Тема: Сортування та пошук. Частина 1
 # Завдання 1
