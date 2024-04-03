@@ -1,66 +1,474 @@
+# Модуль 4. Функції
+# Тема: Функції. Частина 1
+# Завдання 1
+# Напишіть функцію, яка виводить на екран форматований
+# текст, наведений нижче:
+# “Don’t compare yourself with anyone in this world…
+#  if you do so, you are insulting yourself.”
+# Bill Gates
+
+def print_quote(author, str1, str2):
+    formatted_text = f'“{str1}\n{str2}”\n\t\t\t\t\t\t{author}'
+    print(formatted_text)
+
+# Викликаємо функцію з потрібними аргументами
+print_quote("Bill Gates", "Don’t compare yourself with anyone in this world…", "if you do so, you are insulting yourself.")
+
+# Завдання 2
+# Напишіть функцію, яка приймає два числа як параметр
+# і відображає усі парні числа між ними.
+
+
+# def even_numbers(start, end):
+#     for num in range(start, end + 1):
+#         if num % 2 == 0:
+#             print(num)
+#
+# even_numbers(1,20)
+
+# Завдання 3
+# Напишіть функцію, яка відображає порожній або заповнений квадрат із певним символом. Функція приймає в якості параметрів довжину сторони квадрата, символ та змінну
+# логічного типу:
+# ■ якщо вона дорівнює True, квадрат заповнений;
+# ■ якщо False, квадрат порожній.
+# def draw_square(length, symbol, filled):
+#     if filled:
+#         for i in range(length):
+#             print(symbol * length)
+#     else:
+#         print(symbol * length)
+#         for i in range(length - 2):
+#             print(symbol + " " * (length - 2) + symbol)
+#         print(symbol * length)
+#
+# # Приклад виклику функції
+# draw_square(5, "8", True)
+# print()
+# draw_square(5, "/", False)
+
+# Завдання 4
+# Напишіть функцію, яка повертає мінімальне з п’яти чисел.
+# Числа передаються як параметри.
+# def find_min(*numbers):
+#     min_number = numbers[0]
+#     for num in numbers:
+#         if num < min_number:
+#             min_number = num
+#     return min_number
+#
+# min_number = find_min(10, 5, 8, 3, 12)
+# print("Мінімальне число:", min_number)
+
+# Завдання 5
+# Напишіть функцію, яка повертає добуток чисел у зазначеному діапазоні. Межі діапазону передаються як параметри.
+# Якщо межі діапазону переплутані (наприклад, 5 — верхня
+# межа, 25 — нижня межа), їх треба поміняти місцями.
+
+# def product_in_range(start, end):
+#     if start > end:
+#         start = end
+#         end = start
+#
+#     product = 1
+#     for num in range(start, end + 1):
+#         product *= num
+#     return product
+#
+# start =  3
+# end = 25
+# result = product_in_range(start, end)
+# print(result)
+
+# Завдання 6
+# Напишіть функцію, яка підраховує кількість цифр у числі.
+# Число передається як параметр. Поверніть з функції отриману
+# кількість цифр. Наприклад, якщо передали 3456, кількість
+# цифр буде 4.
+
+# def count_digits(number):
+#     return len(str(number))
+#
+# number = 34544444
+# digits_count = count_digits(number)
+# print("Кількість цифр у числі", number, ":", digits_count)
+
+# Завдання 7
+# Напишіть функцію, яка перевіряє число на паліндром.
+# Число передається як параметр. Якщо число є паліндромом,
+# поверніть з функції true, якщо ні — false.
+# «Паліндром» — це число, в якому перша частина цифр
+# дорівнює другій перевернутій частини цифр. Наприклад,
+# 123321 — паліндром (перша частина 123, друга 321, яка після
+# перевороту стає 123), 546645 — паліндром, а 421987 — не
+# паліндром.
+
+# def is_palindrome(number):
+#     number_str = str(number)
+#     return number_str == number_str[::-1]
+#
+# print(is_palindrome(123321))
+# print(is_palindrome(546645))
+# print(is_palindrome(421987))
+
+
+# Модуль 6. Кортежі, множини, словники
+# Тема: Кортежі, множини, словники. Частина 2
+# Завдання 1
+# Створіть програму, що містить інформацію про відомих
+# баскетболістів. Збережіть ПІБ та зріст кожного баскетболіста. Реалізуйте можливість додавати, видаляти, знаходити та
+# змінювати дані. Використовуйте словник для збереження
+# інформації.
+
+
+basketball_players = {
+    'Player1': 203,
+    'Player2': 208,
+    'Player3': 191,
+    'Player4': 211
+}
+
+def add_player(name, height):
+    basketball_players[name] = height
+    print(f"{name} added to the list of basketball players.")
+
+def delete_player(name):
+    if name in basketball_players:
+        del basketball_players[name]
+        print(f"{name} deleted from the list of basketball players.")
+    else:
+        print(f"{name} not found in the list of basketball players.")
+
+def find_player(name):
+    if name in basketball_players:
+        print(f"{name}: {basketball_players[name]} ")
+    else:
+        print(f"{name} not found in the list of basketball players.")
+
+def update_player(name, height):
+    if name in basketball_players:
+        basketball_players[name] = height
+        print(f"Information about {name} updated.")
+    else:
+        print(f"{name} not found in the list of basketball players.")
+
+def print_all_players():
+    print("List of basketball players:")
+    for name, height in basketball_players.items():
+        print(f"{name}: {height} cm.")
+
+add_player('Player8', 198)
+print_all_players()
+
+delete_player('Player1')
+print_all_players()
+
+find_player('Player2')
+
+update_player('Player3', 205)
+print_all_players()
+
+
+
+# Завдання 2
+# Створіть програму «Англо-французький словник». Збережіть слово англійською та його переклад на французьку.
+# Реалізуйте можливість додавати, видаляти, знаходити та
+# змінювати дані. Використовуйте словник для збереження
+# інформації.
+
+# english_french_dict = {
+#     'hello': 'bonjour',
+#     'goodbye': 'au revoir',
+#     'cat': 'chat',
+#     'dog': 'chien'
+# }
+#
+# def add_translation(english_word, french_word):
+#     english_french_dict[english_word] = french_word
+#     print(f"Translation for '{english_word}' added to the dictionary.")
+#
+# def delete_translation(english_word):
+#     if english_word in english_french_dict:
+#         del english_french_dict[english_word]
+#         print(f"Translation for '{english_word}' deleted from the dictionary.")
+#     else:
+#         print(f"Translation for '{english_word}' not found in the dictionary.")
+#
+# def find_translation(english_word):
+#     if english_word in english_french_dict:
+#         print(f"French translation for '{english_word}': {english_french_dict[english_word]}")
+#     else:
+#         print(f"Translation for '{english_word}' not found in the dictionary.")
+#
+# def update_translation(english_word, french_word):
+#     if english_word in english_french_dict:
+#         english_french_dict[english_word] = french_word
+#         print(f"Translation for '{english_word}' updated.")
+#     else:
+#         print(f"Translation for '{english_word}' not found in the dictionary.")
+#
+# def print_all_translations():
+#     print("English-French Dictionary:")
+#     for english_word, french_word in english_french_dict.items():
+#         print(f"{english_word}: {french_word}")
+#
+# add_translation('book', 'livre')
+# print_all_translations()
+#
+# delete_translation('dog')
+# print_all_translations()
+#
+# find_translation('hello')
+#
+# update_translation('goodbye', 'au revoir!')
+# print_all_translations()
+
+# Завдання 3
+# Створіть програму «Фірма», яка зберігає інформацію про
+# працівників: ПІБ, телефон, корпоративний email, назва посади,
+# номер кабінету, Skype. Реалізуйте можливість додавати, видаляти, знаходити та змінювати дані. Використовуйте словник
+# для збереження інформації.
+
+
+# employees = {
+#     1: {
+#         'name': 'John Doe',
+#         'phone': '123-456-7890',
+#         'email': 'john.doe@example.com',
+#         'position': 'Manager',
+#         'office_number': '101',
+#         'skype': 'john_doe_skype'
+#     },
+#     2: {
+#         'name': 'Jane Smith',
+#         'phone': '987-654-3210',
+#         'email': 'jane.smith@example.com',
+#         'position': 'Developer',
+#         'office_number': '202',
+#         'skype': 'jane_smith_skype'
+#     }
+# }
+#
+# def add_employee(emp_id, name, phone, email, position, office_number, skype):
+#     employees[emp_id] = {
+#         'name': name,
+#         'phone': phone,
+#         'email': email,
+#         'position': position,
+#         'office_number': office_number,
+#         'skype': skype
+#     }
+#     print(f"Employee with ID {emp_id} added to the database.")
+#
+# def delete_employee(emp_id):
+#     if emp_id in employees:
+#         del employees[emp_id]
+#         print(f"Employee with ID {emp_id} deleted from the database.")
+#     else:
+#         print(f"Employee with ID {emp_id} not found in the database.")
+#
+# def find_employee(emp_id):
+#     if emp_id in employees:
+#         print(f"Employee ID: {emp_id}")
+#         for key, value in employees[emp_id].items():
+#             print(f"{key.capitalize()}: {value}")
+#     else:
+#         print(f"Employee with ID {emp_id} not found in the database.")
+#
+# def update_employee(emp_id, name=None, phone=None, email=None, position=None, office_number=None, skype=None):
+#     if emp_id in employees:
+#         if name:
+#             employees[emp_id]['name'] = name
+#         if phone:
+#             employees[emp_id]['phone'] = phone
+#         if email:
+#             employees[emp_id]['email'] = email
+#         if position:
+#             employees[emp_id]['position'] = position
+#         if office_number:
+#             employees[emp_id]['office_number'] = office_number
+#         if skype:
+#             employees[emp_id]['skype'] = skype
+#         print(f"Employee with ID {emp_id} updated.")
+#     else:
+#         print(f"Employee with ID {emp_id} not found in the database.")
+#
+# def print_all_employees():
+#     print("List of Employees:")
+#     for emp_id, employee_info in employees.items():
+#         print(f"\nEmployee ID: {emp_id}")
+#         for key, value in employee_info.items():
+#             print(f"{key.capitalize()}: {value}")
+#
+# # Example usage of functions
+# add_employee(3, 'Alice Johnson', '456-789-0123', 'alice.johnson@example.com', 'Designer', '303', 'alice_johnson_skype')
+# print_all_employees()
+#
+# delete_employee(2)
+# print_all_employees()
+#
+# find_employee(1)
+#
+# update_employee(3, phone='555-555-5555', position='Senior Designer')
+# print_all_employees()
+
+
+# Завдання 4
+# Створіть програму «Книжкова колекція», яка зберігає
+# інформацію про книги: автор, назва книги, жанр, рік випуску,
+# кількість сторінок, видавництво. Реалізуйте можливість додавати, видаляти, знаходити та змінювати дані. Використовуйте
+# словник для збереження інформації.
+
+book_collection = {
+    1: {
+        'author': 'George Orwell',
+        'title': '1984',
+        'genre': 'Dystopian fiction',
+        'year': 1949,
+        'pages': 300,
+        'publisher': 'asd'
+    },
+    2: {
+        'author': 'J.K. Rowling',
+        'title': 'Harry Potter and the Philosopher\'s Stone',
+        'genre': 'Fantasy',
+        'year': 1997,
+        'pages': 200,
+        'publisher': 'bbb'
+    }
+}
+
+def add_book(book_id, author, title, genre, year, pages, publisher):
+    book_collection[book_id] = {
+        'author': author,
+        'title': title,
+        'genre': genre,
+        'year': year,
+        'pages': pages,
+        'publisher': publisher
+    }
+    print(f"Book with ID {book_id} added to the collection.")
+
+def delete_book(book_id):
+    if book_id in book_collection:
+        del book_collection[book_id]
+        print(f"Book with ID {book_id} deleted from the collection.")
+    else:
+        print(f"Book with ID {book_id} not found in the collection.")
+
+def find_book(book_id):
+    if book_id in book_collection:
+        print(f"Book ID: {book_id}")
+        for key, value in book_collection[book_id].items():
+            print(f"{key.capitalize()}: {value}")
+    else:
+        print(f"Book with ID {book_id} not found in the collection.")
+
+def update_book(book_id, author=None, title=None, genre=None, year=None, pages=None, publisher=None):
+    if book_id in book_collection:
+        if author:
+            book_collection[book_id]['author'] = author
+        if title:
+            book_collection[book_id]['title'] = title
+        if genre:
+            book_collection[book_id]['genre'] = genre
+        if year:
+            book_collection[book_id]['year'] = year
+        if pages:
+            book_collection[book_id]['pages'] = pages
+        if publisher:
+            book_collection[book_id]['publisher'] = publisher
+        print(f"Book with ID {book_id} updated.")
+    else:
+        print(f"Book with ID {book_id} not found in the collection.")
+
+def print_all_books():
+    print("List of Books:")
+    for book_id, book_info in book_collection.items():
+        print(f"\nBook ID: {book_id}")
+        for key, value in book_info.items():
+            print(f"{key.capitalize()}: {value}")
+
+add_book(3, 'Bradbury', 'Fahrenheit 451', 'Science fiction', 1953, 249, 'Ballantine Books')
+print_all_books()
+
+delete_book(2)
+print_all_books()
+
+find_book(1)
+
+update_book(3, pages=32, publisher='ccc')
+print_all_books()
+
+
+
+
+
+
+
+
 #Homework
 # маємо 4 списки цілих чисел. Обєднати в пятий спсок тількт ті елементи які є унікальними для кожного списку.
 # Отриманий результат відсортуйте за спаданням чи зростанням за вибором користовача.
 # Знайдіть значення, введене користувачем за дпомогою бінарного пошуку
 
-import random
-list1 = [random.randint(-10, 10) for i in range(10)]
-list2 = [random.randint(-10, 10) for i in range(10)]
-list3 = [random.randint(-10, 10) for i in range(10)]
-list4 = [random.randint(-10, 10) for i in range(10)]
-uniq1=[]
-uniq2=[]
-uniq3=[]
-uniq4=[]
-
-for i in range(len(list1)):
-    if uniq1.count(list1[i]) == 0:
-        uniq1.append(list1[i])
-    if uniq2.count(list2[i]) == 0:
-        uniq2.append(list2[i])
-    if uniq3.count(list3[i]) == 0:
-        uniq3.append(list3[i])
-    if uniq4.count(list4[i]) == 0:
-        uniq4.append(list4[i])
-uniq = uniq1+uniq2+uniq3+uniq4
-print("list1: ",list1,"uniq1: ", uniq1)
-print("list2: ",list2,"uniq2: ", uniq2)
-print("list3: ",list3,"uniq3: ", uniq3)
-print("list4: ",list4,"uniq4: ", uniq4)
-print("List of unique elements: ", uniq)
-
-choice = int(input(" Sorting +  - 1, sorting -   2 : "))
-if choice == 1:
-    sortlist = sorted(uniq)
-    print(sortlist)
-elif choice == 2:
-    sortlist = (sorted(uniq, reverse=True))
-    print(sortlist)
-
-else:
-    print("wrong choice")
-
-number = int(input("Input number : "))
-sortlist = sorted(uniq)
-left = 0
-right = len(sortlist)-1
-print(right)
-while left <= right:
-     mid = (left + right) // 2
-     if sortlist[mid] == number:
-         if choice ==1 :
-            print(f"Your number {number} is on {mid} position on list")
-            break
-         else :
-             print(f"Your number {number} is on {len(sortlist)-mid } position on list")
-             break
-     elif sortlist[mid] < number:
-         left = mid + 1
-     else:
-         right = mid - 1
-
-else:
-     print(f"number {number} not found")
+# import random
+# list1 = [random.randint(-10, 10) for i in range(10)]
+# list2 = [random.randint(-10, 10) for i in range(10)]
+# list3 = [random.randint(-10, 10) for i in range(10)]
+# list4 = [random.randint(-10, 10) for i in range(10)]
+# uniq1=[]
+# uniq2=[]
+# uniq3=[]
+# uniq4=[]
+#
+# for i in range(len(list1)):
+#     if uniq1.count(list1[i]) == 0:
+#         uniq1.append(list1[i])
+#     if uniq2.count(list2[i]) == 0:
+#         uniq2.append(list2[i])
+#     if uniq3.count(list3[i]) == 0:
+#         uniq3.append(list3[i])
+#     if uniq4.count(list4[i]) == 0:
+#         uniq4.append(list4[i])
+# uniq = uniq1+uniq2+uniq3+uniq4
+# print("list1: ",list1,"uniq1: ", uniq1)
+# print("list2: ",list2,"uniq2: ", uniq2)
+# print("list3: ",list3,"uniq3: ", uniq3)
+# print("list4: ",list4,"uniq4: ", uniq4)
+# print("List of unique elements: ", uniq)
+#
+# choice = int(input(" Sorting +  - 1, sorting -   2 : "))
+# if choice == 1:
+#     sortlist = sorted(uniq)
+#     print(sortlist)
+# elif choice == 2:
+#     sortlist = (sorted(uniq, reverse=True))
+#     print(sortlist)
+#
+# else:
+#     print("wrong choice")
+#
+# number = int(input("Input number : "))
+# sortlist = sorted(uniq)
+# left = 0
+# right = len(sortlist)-1
+# print(right)
+# while left <= right:
+#      mid = (left + right) // 2
+#      if sortlist[mid] == number:
+#          if choice ==1 :
+#             print(f"Your number {number} is on {mid} position on list")
+#             break
+#          else :
+#              print(f"Your number {number} is on {len(sortlist)-mid } position on list")
+#              break
+#      elif sortlist[mid] < number:
+#          left = mid + 1
+#      else:
+#          right = mid - 1
+#
+# else:
+#      print(f"number {number} not found")
 
 
 
@@ -68,35 +476,35 @@ else:
 # ■ відсортувати за назвою книг;
 # відсортувати за рокам випуску;
 # вивести список книг з назвами та роками випуску;
-books = [("Книга1", 2005), ("Книга2", 2010), ("Книга3", 1998)]
-
-while True:
-    print("\nМеню:")
-    print("1. Відсортувати за назвою книг")
-    print("2. Відсортувати за роками випуску")
-    print("3. Вивести список книг з назвами та роками випуску")
-    print("4. Вихід")
-
-    choice = input("Виберіть опцію: ")
-
-    if choice == '1':
-        sorted_books = sorted(books, key=lambda x: x[0])
-        print("Відсортовано за назвою книг:")
-        for book in sorted_books:
-            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
-    elif choice == '2':
-        sorted_books = sorted(books, key=lambda x: x[1])
-        print("Відсортовано за роками випуску:")
-        for book in sorted_books:
-            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
-    elif choice == '3':
-        print("Список книг:")
-        for book in books:
-            print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
-    elif choice == '4':
-        break
-    else:
-        print("Некоректний вибір.")
+# books = [("Книга1", 2005), ("Книга2", 2010), ("Книга3", 1998)]
+#
+# while True:
+#     print("\nМеню:")
+#     print("1. Відсортувати за назвою книг")
+#     print("2. Відсортувати за роками випуску")
+#     print("3. Вивести список книг з назвами та роками випуску")
+#     print("4. Вихід")
+#
+#     choice = input("Виберіть опцію: ")
+#
+#     if choice == '1':
+#         sorted_books = sorted(books, key=lambda x: x[0])
+#         print("Відсортовано за назвою книг:")
+#         for book in sorted_books:
+#             print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+#     elif choice == '2':
+#         sorted_books = sorted(books, key=lambda x: x[1])
+#         print("Відсортовано за роками випуску:")
+#         for book in sorted_books:
+#             print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+#     elif choice == '3':
+#         print("Список книг:")
+#         for book in books:
+#             print(f"Назва: {book[0]}, Рік випуску: {book[1]}")
+#     elif choice == '4':
+#         break
+#     else:
+#         print("Некоректний вибір.")
 
 
 
@@ -106,63 +514,63 @@ while True:
 # є список книг в форматі (автор, назва, рік, видання).створити меню. 1 Сортування книг за автором, або за роком . 2 ПОщук книги по назві, за виданням, автором.
 # 3.фільтарація за роком. користвач водить рік та вибирає "показати киги після цього року" або "книги до цього року"
 
-books = [
-    ("Автор1", "Назва1", 2005, "Видання1"),
-    ("Автор2", "Назва2", 2010, "Видання2"),
-    ("Автор3", "Назва3", 1998, "Видання3")
-]
-
-while True:
-    print("\nМеню:")
-    print("1. Сортування книг за автором або за роком")
-    print("2. Пошук книги за назвою, виданням або автором")
-    print("3. Фільтрація за роком")
-    print("4. Вихід")
-
-    choice = input("Виберіть опцію: ")
-
-    if choice == '1':
-        sort_choice = input("Виберіть сортування: 1. За автором 2. За роком: ")
-        if sort_choice == '1':
-            sorted_books = sorted(books, key=lambda x: x[0])
-            print("Відсортовано за автором:")
-            for book in sorted_books:
-                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
-        elif sort_choice == '2':
-            sorted_books = sorted(books, key=lambda x: x[2])
-            print("Відсортовано за роком:")
-            for book in sorted_books:
-                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
-        else:
-            print("ПОмилка")
-    elif choice == '2':
-        search_term = input("Введіть назву, видання або автора книги для пошуку: ").lower()
-        found_books = [book for book in books if search_term in [str(item).lower() for item in book]]
-        if found_books:
-            for book in found_books:
-                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
-        else:
-            print("Книга не знайдена.")
-    elif choice == '3':
-        filter_choice = input("1. Показати книги після вказаного року 2. Показати книги до вказаного року: ")
-        year = int(input("Введіть рік: "))
-        if filter_choice == '1':
-            filtered_books = [book for book in books if book[2] > year]
-        elif filter_choice == '2':
-            filtered_books = [book for book in books if book[2] < year]
-        else:
-            print("Помилка")
-            continue
-        if filtered_books:
-            print(f"Книги {'після' if filter_choice == '1' else 'до'} {year} року:")
-            for book in filtered_books:
-                print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
-        else:
-            print("Немає таких  книг ")
-    elif choice == '4':
-        break
-    else:
-        print("Некоректний вибір")
+# books = [
+#     ("Автор1", "Назва1", 2005, "Видання1"),
+#     ("Автор2", "Назва2", 2010, "Видання2"),
+#     ("Автор3", "Назва3", 1998, "Видання3")
+# ]
+#
+# while True:
+#     print("\nМеню:")
+#     print("1. Сортування книг за автором або за роком")
+#     print("2. Пошук книги за назвою, виданням або автором")
+#     print("3. Фільтрація за роком")
+#     print("4. Вихід")
+#
+#     choice = input("Виберіть опцію: ")
+#
+#     if choice == '1':
+#         sort_choice = input("Виберіть сортування: 1. За автором 2. За роком: ")
+#         if sort_choice == '1':
+#             sorted_books = sorted(books, key=lambda x: x[0])
+#             print("Відсортовано за автором:")
+#             for book in sorted_books:
+#                 print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+#         elif sort_choice == '2':
+#             sorted_books = sorted(books, key=lambda x: x[2])
+#             print("Відсортовано за роком:")
+#             for book in sorted_books:
+#                 print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+#         else:
+#             print("ПОмилка")
+#     elif choice == '2':
+#         search_term = input("Введіть назву, видання або автора книги для пошуку: ").lower()
+#         found_books = [book for book in books if search_term in [str(item).lower() for item in book]]
+#         if found_books:
+#             for book in found_books:
+#                 print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+#         else:
+#             print("Книга не знайдена.")
+#     elif choice == '3':
+#         filter_choice = input("1. Показати книги після вказаного року 2. Показати книги до вказаного року: ")
+#         year = int(input("Введіть рік: "))
+#         if filter_choice == '1':
+#             filtered_books = [book for book in books if book[2] > year]
+#         elif filter_choice == '2':
+#             filtered_books = [book for book in books if book[2] < year]
+#         else:
+#             print("Помилка")
+#             continue
+#         if filtered_books:
+#             print(f"Книги {'після' if filter_choice == '1' else 'до'} {year} року:")
+#             for book in filtered_books:
+#                 print(f"Автор: {book[0]}, Назва: {book[1]}, Рік: {book[2]}, Видання: {book[3]}")
+#         else:
+#             print("Немає таких  книг ")
+#     elif choice == '4':
+#         break
+#     else:
+#         print("Некоректний вибір")
 
 
 # Модуль 6. Кортежі, множини, словники
